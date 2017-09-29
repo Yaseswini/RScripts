@@ -4,6 +4,7 @@
 
 # Suggestions are welcome!
 
+# args xmlFile is the path to the downloaded XML file from MSigDB
 parse_MSigDB_for_GOTerms <- function( xmlFile )
 {
      # Load neccessary packages 
