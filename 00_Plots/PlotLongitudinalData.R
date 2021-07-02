@@ -18,10 +18,6 @@ plot_longitudinal <- function( dat , yaxisLabel , plotTitle , LogTransformY = FA
 {
     #  generating the plotData 
     plotData = dat %>% pivot_longer( cols = -contains("gene") , names_to = "xaxis_group" )
-    if( LogTransformY ) {
-        plotData = plotData %>% mutate( value = log10( value ) )
-    }
-
     p = ggplot(  aes( x = xaxis_group , y = value , color = gene ) ) + 
         geom_point() + 
         geom_line( aes(group=1) ) + 
@@ -29,7 +25,12 @@ plot_longitudinal <- function( dat , yaxisLabel , plotTitle , LogTransformY = FA
         theme_bw() + 
         theme( legend.position = "none" ) + 
         labs( x = "" , y = yaxisLabel , title = plotTitle )
-   ggsave( p , file = outFile )
+
+    if( LogTransformY ) {
+        p = p + scale_y_log10()
+    }
+
+    return( p )
 }
 
 pdf( outFile )
