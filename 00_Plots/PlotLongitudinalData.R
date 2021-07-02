@@ -18,6 +18,11 @@ plot_longitudinal <- function( dat , yaxisLabel = NULL , plotTitle = NULL , LogT
 {
     #  generating the plotData 
     plotData = dat %>% pivot_longer( cols = -contains("gene") , names_to = "xaxis_group" )
+
+    if( LogTransformY ){
+        plotData = plotData %>% mutate( value = log10(value) )
+    }
+
     p = ggplot( plotData , aes( x = xaxis_group , y = value , color = gene ) ) + 
         geom_point() + 
         geom_line( aes(group=1) ) + 
@@ -25,11 +30,7 @@ plot_longitudinal <- function( dat , yaxisLabel = NULL , plotTitle = NULL , LogT
         theme_bw() + 
         theme( legend.position = "none" ) + 
         labs( x = "" , y = yaxisLabel , title = plotTitle )
-
-    if( LogTransformY ) {
-        p = p + scale_y_log10()
-    }
-
+    
     return( p )
 }
 
