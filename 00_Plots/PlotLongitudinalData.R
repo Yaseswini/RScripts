@@ -14,11 +14,11 @@
 ## Inputs from user : 
 inData = read_tsv( "<path_to_your_file>" )
 
-plot_longitudinal <- function( dat , yaxisLabel , plotTitle , LogTransformY = FALSE )
+plot_longitudinal <- function( dat , yaxisLabel = NULL , plotTitle = NULL , LogTransformY = FALSE )
 {
     #  generating the plotData 
     plotData = dat %>% pivot_longer( cols = -contains("gene") , names_to = "xaxis_group" )
-    p = ggplot(  aes( x = xaxis_group , y = value , color = gene ) ) + 
+    p = ggplot( plotData , aes( x = xaxis_group , y = value , color = gene ) ) + 
         geom_point() + 
         geom_line( aes(group=1) ) + 
         facet_wrap( gene ~ . ) + 
