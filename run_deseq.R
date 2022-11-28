@@ -3,7 +3,8 @@
 ## phenoTab : phenotype table ( rownames are samples and multiple columns can be your attributes 
 ## countTab : rownames are genes and column names are samples 
 ## formula : design formula to calculate diff exp ( ex : ~ condition ) 
-## coef.name : if condition has two levels ( ex Tumor and Normal ), coef.name is condition_Tumor_vs_Normal .
+## coef.name : if condition has two levels ( ex Tumor and Normal ), coef.name is condition_Tumor_vs_Normal . 
+##	If coef.name == NULL , the script will calculate log2foldchange for the last variable in the design formula
 ## 
 
 run_deseq2 <- function( phenoTab , countTab , formula , coef.name , outDIR = NULL , outLabel = NULL , volcanoPlot = TRUE , log2FC_thresh = 1 , qvalue_thresh = 0.05 )
