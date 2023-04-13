@@ -1,0 +1,17 @@
+R packages for colors 
+
+library( wesanderson ) 
+library( ggsci )
+library( viridis )
+
+
+
+#
+col1 = c("Birch","Bright Red Violet")
+col2 = c("Dusty Lavender","Teal Blue","Apricot Cream")
+col3 = c("Hot Pink", "Blue Indigo")
+col4 = c("Winery Red","Hunter Green")
+col5 = c("Electric blue","Grass Green","Daffodil","Bright Rose")
+col6 = c("Charcoal Gray","Magenta","Silver")
+col7 = c("Sea Blue","Gray Violet")
+
