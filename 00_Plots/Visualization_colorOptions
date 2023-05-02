@@ -16,3 +16,7 @@ col5 = c("Electric blue","Grass Green","Daffodil","Bright Rose")
 col6 = c("Charcoal Gray","Magenta","Silver")
 col7 = c("Sea Blue","Gray Violet")
 
+Resources for heatmaps 
+
+https://gdevailly.netlify.app/post/plotting-big-matrices-in-r/
+https://www.nature.com/articles/nmeth.1902
